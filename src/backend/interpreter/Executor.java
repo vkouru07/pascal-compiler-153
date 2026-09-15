@@ -23,6 +23,35 @@ public class Executor extends SimpleA3BaseVisitor<Object>
 
         return null;
     }
+
+    @Override 
+    public Object visitCaseStatement(CaseStatementContext ctx){
+        Object caseValue = visit(ctx.expression());
+
+        for(CaseBranchContext branchCtx : ctx.caseBranch()){
+            for(CaseConstantContext constantCtx : branchCtx.caseConstant()){
+                Object branchValue = visit(constantCtx);
+                if(caseValue.equals(branchValue)){
+                    visit(branchCtx.statement());
+                    return null;
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override 
+    public Object visitCaseConstant(CaseConstantContext ctx){
+
+        if(ctx.unsignedConstant() != null){
+            return (Double) visit(ctx.unsignedConstant());
+        } else if(ctx.characterConstant() != null){
+            return (Character) visit(ctx.characterConstant());
+        } else if(ctx.stringConstant() != null){
+            return (String) visit(ctx.stringConstant());
+        }
+        return null;
+    }
     
     @Override 
     public Object visitRepeatStatement(RepeatStatementContext ctx)

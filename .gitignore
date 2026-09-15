@@ -89,3 +89,4 @@ http-client.private.env.json
 /.DS_Store
 /lib
 src/intermediate/antlr4/
+.vscode

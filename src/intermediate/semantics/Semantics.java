@@ -57,6 +57,28 @@ public class Semantics extends SimpleA3BaseVisitor<Object>
     }
 
     @Override 
+    public Object visitCaseStatement(CaseStatementContext ctx) 
+    {
+        visit(ctx.expression());
+        
+        for (CaseBranchContext branchCtx : ctx.caseBranch())
+        {
+            visit(branchCtx);
+        }
+        
+        return null;
+    }
+
+    @Override 
+    public Object visitCaseBranch(CaseBranchContext ctx){
+        for (CaseConstantContext constantCtx : ctx.caseConstant()){
+            visit(constantCtx);
+        }
+
+        return null;
+    }
+
+    @Override 
     public Object visitVariable(VariableContext ctx) 
     {
         IdentifierContext idCtx = ctx.identifier();
