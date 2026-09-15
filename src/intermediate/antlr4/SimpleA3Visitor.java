@@ -1,4 +1,4 @@
-// Generated from SimpleA3.g4 by ANTLR 4.13.2
+// Generated from /Users/vkouru007/Desktop/cs153/pascal-compiler/SimpleA3.g4 by ANTLR 4.13.2
 
     package intermediate.antlr4;
     import intermediate.symtab.SymtabEntry;
@@ -121,6 +121,12 @@ public interface SimpleA3Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPrecision(SimpleA3Parser.PrecisionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleA3Parser#forStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForStatement(SimpleA3Parser.ForStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleA3Parser#sign}.
 	 * @param ctx the parse tree

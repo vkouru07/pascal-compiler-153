@@ -8,6 +8,20 @@ import intermediate.symtab.*;
 
 public class Executor extends SimpleA3BaseVisitor<Object>
 {
+    @Override
+    public Object visitForStatement (ForStatementContext ctx) {
+        visit (ctx.assignmentStatement());
+        VariableContext testee = ctx.assignmentStatement().variable();
+        Double tester = (Double)visit(ctx.expression());
+
+        boolean incrementing = ctx.TO() != null;
+        while (incrementing ? testee.entry.getValue() <= tester : testee.entry.getValue() >= tester) {
+            visit (ctx.statement());
+            testee.entry.setValue (testee.entry.getValue() + (incrementing ?  1 : -1));
+        }
+        return null;
+    }
+
     @Override 
     public Object visitAssignmentStatement(AssignmentStatementContext ctx)
     {

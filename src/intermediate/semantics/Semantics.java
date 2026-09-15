@@ -31,6 +31,15 @@ public class Semantics extends SimpleA3BaseVisitor<Object>
         return null;
     }
 
+//    @Override
+//    public Object visitForStatement (ForStatementContext ctx) {
+//        visitAssignmentStatement (ctx.assignmentStatement());
+//        visitExpression (ctx.expression());
+//        visitStatement (ctx.statement());
+//
+//        return null;
+//    }
+
     @Override 
     public Object visitAssignmentStatement(AssignmentStatementContext ctx) 
     {
