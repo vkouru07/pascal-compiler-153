@@ -89,3 +89,4 @@ http-client.private.env.json
 .DS_Store
 /src/intermediate/antlr4/
 
+.DS_Store
