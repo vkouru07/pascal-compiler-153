@@ -2,7 +2,6 @@ grammar SimpleA3;
 
 @header 
 {
-    package intermediate.antlr4;
     import intermediate.symtab.SymtabEntry;
 }
 
@@ -22,10 +21,10 @@ identifier      locals [ SymtabEntry entry = null ]
 statement : compoundStatement
           | assignmentStatement
           | repeatStatement
+          | caseStatement
           | writeStatement
           | writelnStatement
           | emptyStatement
-          | whileStatement
           | forStatement
           ;
 
@@ -35,6 +34,9 @@ compoundStatement : BEGIN statementList END ;
 statementList     : statement ( ';' statement )* ;
 
 assignmentStatement : variable ':=' expression ;
+caseStatement       : CASE expression OF caseBranch (';' caseBranch)* ';'? END ;
+caseBranch          : caseConstant (',' caseConstant)* ':' statement ;
+caseConstant        : sign? unsignedConstant | characterConstant | stringConstant ;
 repeatStatement     : REPEAT statementList UNTIL expression ;
 
 writeStatement   : WRITE writeArguments ;
@@ -45,7 +47,6 @@ format           : width (':' precision)? ;
 width            : sign? integerConstant ;
 precision        : integerConstant ;
 
-whileStatement   : WHILE expression DO statement;
 forStatement     : FOR assignmentStatement (TO | DOWNTO) expression DO statement;
 
 sign : '-' | '+' ;
@@ -98,11 +99,12 @@ MOD       : M O D ;
 AND       : A N D ;
 OR        : O R ;
 NOT       : N O T ;
+CASE      : C A S E ;
+OF        : O F ;
 REPEAT    : R E P E A T ;
 UNTIL     : U N T I L ;
 WRITE     : W R I T E ;
 WRITELN   : W R I T E L N ;
-WHILE     : W H I L E ;
 FOR       : F O R ;
 TO        : T O ;
 DOWNTO    : D O W N T O ;
