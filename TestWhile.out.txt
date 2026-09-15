@@ -1,0 +1,65 @@
+001 program TestWhile;                               
+002 
+003 begin
+004     i := 1;
+005     while i <= 5 do begin
+006         write('i = '); 
+007         writeln(i);
+008         i := i + 1
+009     end;
+010 
+011     writeln;
+012 
+013     i := 1;
+014     while i <= 5 do begin
+015         j := 10;
+016 
+017         while j <= 30 do begin
+018             write('i = '); 
+019             write(i);
+020             write(', j = '); 
+021             writeln(j);
+022             j := j + 10
+023         END;
+024 
+025         i := i + 1
+026     END;
+027 END.
+
+PASS 1 Syntax:
+There were no syntax errors.
+
+PASS 2 Semantics:
+There were no semantic errors.
+
+===== CROSS-REFERENCE TABLE =====
+
+Identifier           Line numbers
+----------           ------------
+i                    004 005 007 008 008 013 014 019 025 025 
+j                    015 017 021 022 022 
+testwhile            001 
+
+Pass 3 Execution output:
+
+i = 1
+i = 2
+i = 3
+i = 4
+i = 5
+
+i = 1, j = 10
+i = 1, j = 20
+i = 1, j = 30
+i = 2, j = 10
+i = 2, j = 20
+i = 2, j = 30
+i = 3, j = 10
+i = 3, j = 20
+i = 3, j = 30
+i = 4, j = 10
+i = 4, j = 20
+i = 4, j = 30
+i = 5, j = 10
+i = 5, j = 20
+i = 5, j = 30
