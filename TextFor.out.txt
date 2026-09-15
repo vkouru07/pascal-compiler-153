@@ -1,0 +1,63 @@
+001 program TestFor;                                 
+002 
+003 begin
+004  for i := 1 to 5 do begin
+005  write('i = '); writeln(i);
+006  end;
+007  writeln;
+008 
+009  for i := 5 downto 1 do begin
+010  write('i = '); writeln(i);
+011  end;
+012  writeln;
+013 
+014  for i := 1 to 3 do begin
+015  for j := 4 downto 1 do begin
+016  write('i = '); write(i);
+017  write(', j = '); writeln(j);
+018  END
+019  end;
+020 
+021  writeln;
+022 end.
+
+PASS 1 Syntax:
+There were no syntax errors.
+
+PASS 2 Semantics:
+There were no semantic errors.
+
+===== CROSS-REFERENCE TABLE =====
+
+Identifier           Line numbers
+----------           ------------
+i                    004 005 009 010 014 016 
+j                    015 017 
+testfor              001 
+
+Pass 3 Execution output:
+
+i = 1
+i = 2
+i = 3
+i = 4
+i = 5
+
+i = 5
+i = 4
+i = 3
+i = 2
+i = 1
+
+i = 1, j = 4
+i = 1, j = 3
+i = 1, j = 2
+i = 1, j = 1
+i = 2, j = 4
+i = 2, j = 3
+i = 2, j = 2
+i = 2, j = 1
+i = 3, j = 4
+i = 3, j = 3
+i = 3, j = 2
+i = 3, j = 1
