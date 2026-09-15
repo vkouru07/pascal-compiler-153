@@ -63,7 +63,9 @@ public class Semantics extends SimpleA3BaseVisitor<Object>
         
         for (CaseBranchContext branchCtx : ctx.caseBranch())
         {
-            visit(branchCtx);
+            if (branchCtx.statement() != null) {
+                visit(branchCtx.statement());
+            }
         }
         
         return null;

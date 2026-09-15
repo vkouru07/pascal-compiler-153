@@ -33,9 +33,9 @@ compoundStatement : BEGIN statementList END ;
 statementList     : statement ( ';' statement )* ;
 
 assignmentStatement : variable ':=' expression ;
-caseStatement       : CASE expression OF caseBranch (';' caseBranch)* END ;
+caseStatement       : CASE expression OF caseBranch (';' caseBranch)* ';'? END ;
 caseBranch          : caseConstant (',' caseConstant)* ':' statement ;
-caseConstant        : unsignedConstant | characterConstant | stringConstant ;
+caseConstant        : sign? unsignedConstant | characterConstant | stringConstant ;
 repeatStatement     : REPEAT statementList UNTIL expression ;
 
 writeStatement   : WRITE writeArguments ;

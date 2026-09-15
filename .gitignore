@@ -90,3 +90,4 @@ http-client.private.env.json
 /lib
 src/intermediate/antlr4/
 .vscode
+/build/

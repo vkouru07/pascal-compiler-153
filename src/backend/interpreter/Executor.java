@@ -4,11 +4,12 @@ import org.antlr.v4.runtime.ParserRuleContext;
 
 import intermediate.antlr4.SimpleA3Parser.*;
 import intermediate.antlr4.SimpleA3BaseVisitor;
+import intermediate.antlr4.SimpleA3Parser;
 import intermediate.symtab.*;
 
 public class Executor extends SimpleA3BaseVisitor<Object>
 {
-    @Override 
+
     public Object visitAssignmentStatement(AssignmentStatementContext ctx)
     {
         VariableContext   variableCtx   = ctx.variable();
@@ -39,17 +40,26 @@ public class Executor extends SimpleA3BaseVisitor<Object>
         }
         return null;
     }
-
+    
     @Override 
     public Object visitCaseConstant(CaseConstantContext ctx){
 
         if(ctx.unsignedConstant() != null){
-            return (Double) visit(ctx.unsignedConstant());
+            var unsignedCtx = ctx.unsignedConstant();
+
+            if (unsignedCtx instanceof SimpleA3Parser.UnsignedIntegerConstantContext intCtx) {
+                return Double.parseDouble(intCtx.integerConstant().getText());
+            }
+            
+            if (unsignedCtx instanceof SimpleA3Parser.UnsignedRealConstantContext realCtx) {
+                return Double.parseDouble(realCtx.realConstant().getText());
+            }
         } else if(ctx.characterConstant() != null){
             return (Character) visit(ctx.characterConstant());
         } else if(ctx.stringConstant() != null){
             return (String) visit(ctx.stringConstant());
         }
+
         return null;
     }
     
@@ -129,7 +139,9 @@ public class Executor extends SimpleA3BaseVisitor<Object>
                 {
                     format.append(".");
                     
-                    PrecisionContext precisionCtx = formatCtx.precision();
+                    PrecisionContext precisionCtx = (formatCtx != null) 
+                            ? formatCtx.precision() 
+                            : null;
                     String precisionText = precisionCtx != null
                             ? precisionCtx.integerConstant().getText()
                             : "0";
