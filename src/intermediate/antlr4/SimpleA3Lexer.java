@@ -1,5 +1,4 @@
-// Generated from SimpleA3.g4 by ANTLR 4.13.2
-package intermediate.antlr4;
+// Generated from ./SimpleA3.g4 by ANTLR 4.13.2
 
     import intermediate.symtab.SymtabEntry;
 
