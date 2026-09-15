@@ -1,6 +1,6 @@
-// Generated from /Users/vkouru007/Desktop/cs153/pascal-compiler/SimpleA3.g4 by ANTLR 4.13.2
+// Generated from SimpleA3.g4 by ANTLR 4.13.2
+package intermediate.antlr4;
 
-    package intermediate.antlr4;
     import intermediate.symtab.SymtabEntry;
 
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
@@ -73,6 +73,24 @@ public interface SimpleA3Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAssignmentStatement(SimpleA3Parser.AssignmentStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleA3Parser#caseStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCaseStatement(SimpleA3Parser.CaseStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleA3Parser#caseBranch}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCaseBranch(SimpleA3Parser.CaseBranchContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleA3Parser#caseConstant}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCaseConstant(SimpleA3Parser.CaseConstantContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleA3Parser#repeatStatement}.
 	 * @param ctx the parse tree

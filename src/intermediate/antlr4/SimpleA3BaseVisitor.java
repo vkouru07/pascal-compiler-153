@@ -1,6 +1,6 @@
-// Generated from /Users/vkouru007/Desktop/cs153/pascal-compiler/SimpleA3.g4 by ANTLR 4.13.2
+// Generated from SimpleA3.g4 by ANTLR 4.13.2
+package intermediate.antlr4;
 
-    package intermediate.antlr4;
     import intermediate.symtab.SymtabEntry;
 
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
@@ -85,6 +85,27 @@ public class SimpleA3BaseVisitor<T> extends AbstractParseTreeVisitor<T> implemen
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitAssignmentStatement(SimpleA3Parser.AssignmentStatementContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCaseStatement(SimpleA3Parser.CaseStatementContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCaseBranch(SimpleA3Parser.CaseBranchContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCaseConstant(SimpleA3Parser.CaseConstantContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

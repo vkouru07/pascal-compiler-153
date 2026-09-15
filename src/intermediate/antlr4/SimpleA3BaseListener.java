@@ -1,6 +1,6 @@
-// Generated from /Users/vkouru007/Desktop/cs153/pascal-compiler/SimpleA3.g4 by ANTLR 4.13.2
+// Generated from SimpleA3.g4 by ANTLR 4.13.2
+package intermediate.antlr4;
 
-    package intermediate.antlr4;
     import intermediate.symtab.SymtabEntry;
 
 
@@ -135,6 +135,42 @@ public class SimpleA3BaseListener implements SimpleA3Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAssignmentStatement(SimpleA3Parser.AssignmentStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCaseStatement(SimpleA3Parser.CaseStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCaseStatement(SimpleA3Parser.CaseStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCaseBranch(SimpleA3Parser.CaseBranchContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCaseBranch(SimpleA3Parser.CaseBranchContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCaseConstant(SimpleA3Parser.CaseConstantContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCaseConstant(SimpleA3Parser.CaseConstantContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -1,6 +1,6 @@
-// Generated from /Users/vkouru007/Desktop/cs153/pascal-compiler/SimpleA3.g4 by ANTLR 4.13.2
+// Generated from SimpleA3.g4 by ANTLR 4.13.2
+package intermediate.antlr4;
 
-    package intermediate.antlr4;
     import intermediate.symtab.SymtabEntry;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
@@ -110,6 +110,36 @@ public interface SimpleA3Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAssignmentStatement(SimpleA3Parser.AssignmentStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleA3Parser#caseStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterCaseStatement(SimpleA3Parser.CaseStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleA3Parser#caseStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitCaseStatement(SimpleA3Parser.CaseStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleA3Parser#caseBranch}.
+	 * @param ctx the parse tree
+	 */
+	void enterCaseBranch(SimpleA3Parser.CaseBranchContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleA3Parser#caseBranch}.
+	 * @param ctx the parse tree
+	 */
+	void exitCaseBranch(SimpleA3Parser.CaseBranchContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleA3Parser#caseConstant}.
+	 * @param ctx the parse tree
+	 */
+	void enterCaseConstant(SimpleA3Parser.CaseConstantContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleA3Parser#caseConstant}.
+	 * @param ctx the parse tree
+	 */
+	void exitCaseConstant(SimpleA3Parser.CaseConstantContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SimpleA3Parser#repeatStatement}.
 	 * @param ctx the parse tree
