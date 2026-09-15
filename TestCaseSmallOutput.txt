@@ -1,0 +1,31 @@
+001 PROGRAM TestCase1;
+002 
+003 BEGIN
+004     i := 3;
+005 
+006     CASE i+1 OF
+007         1:       j := i;
+008         -8:      j := 8*i;
+009         5, 7, 4: j := 574*i;
+010     END;
+011 
+012     writeln(j)
+013 END.
+
+PASS 1 Syntax:
+There were no syntax errors.
+
+PASS 2 Semantics:
+There were no semantic errors.
+
+===== CROSS-REFERENCE TABLE =====
+
+Identifier           Line numbers
+----------           ------------
+i                    004 006 007 008 009 
+j                    007 008 009 012 
+testcase1            001 
+
+Pass 3 Execution output:
+
+1722
