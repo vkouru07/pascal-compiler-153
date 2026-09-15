@@ -49,6 +49,7 @@ width            : sign? integerConstant ;
 precision        : integerConstant ;
 
 whileStatement   : WHILE expression DO statement;
+ifStatement      : IF expression THEN statement (ELSE statement)?;
 forStatement     : FOR assignmentStatement (TO | DOWNTO) expression DO statement;
 
 sign : '-' | '+' ;
@@ -112,6 +113,9 @@ FOR       : F O R ;
 TO        : T O ;
 DOWNTO    : D O W N T O ;
 DO        : D O ;
+IF        : I F ;
+THEN      : T H E N ;
+ELSE      : E L S E ;
 
 IDENTIFIER : LETTER ( LETTER | DIGIT )*;
 INTEGER    : DIGITS ;
