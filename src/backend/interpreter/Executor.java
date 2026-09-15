@@ -114,7 +114,7 @@ public class Executor extends SimpleA3BaseVisitor<Object>
                 {
                     format.append(".");
                     
-                    PrecisionContext precisionCtx = formatCtx.precision();
+                    PrecisionContext precisionCtx = formatCtx != null ? formatCtx.precision() : null;
                     String precisionText = precisionCtx != null
                             ? precisionCtx.integerConstant().getText()
                             : "0";
