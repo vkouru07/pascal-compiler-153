@@ -4,21 +4,11 @@ import org.antlr.v4.runtime.ParserRuleContext;
 
 import intermediate.antlr4.SimpleA3Parser.*;
 import intermediate.antlr4.SimpleA3BaseVisitor;
+import intermediate.antlr4.SimpleA3Parser;
 import intermediate.symtab.*;
 
 public class Executor extends SimpleA3BaseVisitor<Object>
 {
-
-    @Override 
-    public Object visitWhileStatement(WhileStatementContext ctx)
-    {
-        while ((Boolean) visit(ctx.expression())) {
-            visit(ctx.statement());
-        }
-
-        return null;    
-    }   
-
     @Override
     public Object visitForStatement (ForStatementContext ctx) {
         visit (ctx.assignmentStatement());
@@ -63,6 +53,45 @@ public class Executor extends SimpleA3BaseVisitor<Object>
         
         return null;
     }
+
+    @Override 
+    public Object visitCaseStatement(CaseStatementContext ctx){
+        Object caseValue = visit(ctx.expression());
+
+        for(CaseBranchContext branchCtx : ctx.caseBranch()){
+            for(CaseConstantContext constantCtx : branchCtx.caseConstant()){
+                Object branchValue = visit(constantCtx);
+                if(caseValue.equals(branchValue)){
+                    visit(branchCtx.statement());
+                    return null;
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override 
+    public Object visitCaseConstant(CaseConstantContext ctx){
+
+        if(ctx.unsignedConstant() != null){
+            var unsignedCtx = ctx.unsignedConstant();
+
+            if (unsignedCtx instanceof SimpleA3Parser.UnsignedIntegerConstantContext intCtx) {
+                return Double.parseDouble(intCtx.integerConstant().getText());
+            }
+            
+            if (unsignedCtx instanceof SimpleA3Parser.UnsignedRealConstantContext realCtx) {
+                return Double.parseDouble(realCtx.realConstant().getText());
+            }
+        } else if(ctx.characterConstant() != null){
+            return (Character) visit(ctx.characterConstant());
+        } else if(ctx.stringConstant() != null){
+            return (String) visit(ctx.stringConstant());
+        }
+
+        return null;
+    }
+
 
     @Override 
     public Object visitWritelnStatement(WritelnStatementContext ctx)
@@ -159,10 +188,6 @@ public class Executor extends SimpleA3BaseVisitor<Object>
             
         if      (op.equals("=" )) return value1 == value2;
         else if (op.equals("<" )) return value1 <  value2;
-        else if (op.equals("<=")) return value1 <= value2;
-        else if (op.equals("<>")) return value1 != value2;
-        else if (op.equals(">" )) return value1 >  value2;
-        else if (op.equals(">=")) return value1 >= value2;
         
         return null;
     }
