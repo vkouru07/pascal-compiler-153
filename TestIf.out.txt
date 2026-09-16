@@ -1,3 +1,110 @@
+001 program TestIf;
+002     
+003 begin
+004     i := 1;
+005     j := 2;
+006     
+007     IF i = j THEN x := 3.14
+008              ELSE x := -5;
+009      
+010     IF i <> j THEN y := 3.14
+011               ELSE y := -5;
+012     
+013     write('i = '); write(i:3);
+014     write(', j = '); write(j:3);
+015     write(', x = '); write(x:5:2);
+016     write(', y = '); writeln(y:5:2);
+017     
+018     IF i = j THEN BEGIN
+019         x := -7
+020     END 
+021     ELSE BEGIN
+022         x := 8;
+023     END;
+024      
+025     IF i <> j THEN BEGIN
+026         y := 14
+027     END 
+028     ELSE BEGIN
+029         y := -2;
+030     END;
+031     
+032     write('i = ');   write(i:3);
+033     write(', j = '); write(j:3);
+034     write(', x = '); write(x:5:2);
+035     write(', y = '); writeln(y:5:2);
+036     
+037     IF i = j THEN x := 55.55
+038              ELSE BEGIN
+039                  x := 77.77;
+040                  y := 88.88;
+041              END;
+042     
+043     write('i = ');   write(i:3);
+044     write(', j = '); write(j:3);
+045     write(', x = '); write(x:5:2);
+046     write(', y = '); writeln(y:5:2);
+047     
+048     k := 10;
+049     
+050     if i = j then i := 33 
+051              else if not (i <= j) then i := 44 
+052                                   else if i = j then i := 55 
+053                                                 else i := 6;
+054     
+055     write('i = ');   write(i:3);
+056     write(', j = '); write(j:3);
+057     write(', x = '); write(x:5:2);
+058     write(', y = '); writeln(y:5:2);
+059     write('k = ');   writeln(k:3);
+060     
+061     if not (i <= j) then if i div 22 <= j then j := 9 else j := -9;
+062     
+063     write('i = ');   write(i:3);
+064     write(', j = '); write(j:3);
+065     write(', x = '); write(x:5:2);
+066     write(', y = '); writeln(y:5:2);
+067     write('k = ');   writeln(k:3);
+068     
+069     if i = j then if i <= j then k := 11 else k := 12;
+070     
+071     write('i = ');   write(i:3);
+072     write(', j = '); write(j:3);
+073     write(', x = '); write(x:5:2);
+074     write(', y = '); writeln(y:5:2);
+075     write('k = ');   writeln(k:3);
+076     
+077     writeln;
+078     x := i + j + k - x - y;
+079     write('x = '); writeln(x:5:2);
+080     
+081     writeln;
+082     if not (i = j) and (i < j) and (i <> j) and (x < y) then write('Good-bye');
+083     if not (i < j) or (x <> y) then if i > j/2 then if i <> j then if x < 5*y then write(', world!');
+084     
+085     writeln;
+086     writeln('Done!');
+087 end.
+
+PASS 1 Syntax:
+There were no syntax errors.
+
+PASS 2 Semantics:
+There were no semantic errors.
+
+===== CROSS-REFERENCE TABLE =====
+
+Identifier           Line numbers
+----------           ------------
+i                    004 007 010 013 018 025 032 037 043 050 050 051 051 052 052 053 055 061 061 063 069 069 071 078 082 082 082 083 083 083 
+j                    005 007 010 014 018 025 033 037 044 050 051 052 056 061 061 061 061 064 069 069 072 078 082 082 082 083 083 083 
+k                    048 059 067 069 069 075 078 
+testif               001 
+x                    007 008 015 019 022 034 037 039 045 057 065 073 078 078 079 082 083 083 
+y                    010 011 016 026 029 035 040 046 058 066 074 078 082 083 083 
+
+Pass 3 Execution output:
+
 i =   1, j =   2, x = -5.00, y =  3.14
 i =   1, j =   2, x =  8.00, y = 14.00
 i =   1, j =   2, x = 77.77, y = 88.88
