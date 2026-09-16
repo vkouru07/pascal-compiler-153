@@ -9,6 +9,18 @@ import intermediate.symtab.*;
 
 public class Executor extends SimpleA3BaseVisitor<Object>
 {
+    @Override 
+    public Object visitIfStatement(IfStatementContext ctx) 
+    {
+        if ((Boolean)visit(ctx.expression())) {
+            visit(ctx.statement(0));
+        }
+        else {
+            if (ctx.statement().size() > 1)
+                visit(ctx.statement(1));
+        }
+        return null;
+    }
 
     @Override 
     public Object visitWhileStatement(WhileStatementContext ctx)
@@ -301,6 +313,11 @@ public class Executor extends SimpleA3BaseVisitor<Object>
     }
     
     @Override 
+    public Object visitFactorNot(FactorNotContext ctx) {
+        return !(Boolean)visit(ctx.factor());
+    }
+
+    @Override 
     public Object visitFactorVariable(FactorVariableContext ctx)
     {
         return ctx.variable().entry.getValue();
@@ -335,7 +352,7 @@ public class Executor extends SimpleA3BaseVisitor<Object>
     @Override
     public Object visitFactorParenthesized(FactorParenthesizedContext ctx)
     {
-        return (Double) visit(ctx.expression());
+        return visit(ctx.expression());
     }
 
     /**
