@@ -27,6 +27,7 @@ statement : compoundStatement
           | emptyStatement
           | whileStatement
           | forStatement
+          | ifStatement
           ;
 
 emptyStatement : /* empty */ ;
