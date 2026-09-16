@@ -9,6 +9,17 @@ import intermediate.symtab.*;
 
 public class Executor extends SimpleA3BaseVisitor<Object>
 {
+
+    @Override 
+    public Object visitWhileStatement(WhileStatementContext ctx)
+    {
+        while ((Boolean) visit(ctx.expression())) {
+            visit(ctx.statement());
+        }
+
+        return null;    
+    }   
+
     @Override
     public Object visitForStatement (ForStatementContext ctx) {
         visit (ctx.assignmentStatement());
@@ -188,6 +199,10 @@ public class Executor extends SimpleA3BaseVisitor<Object>
             
         if      (op.equals("=" )) return value1 == value2;
         else if (op.equals("<" )) return value1 <  value2;
+        else if (op.equals("<=")) return value1 <= value2;
+        else if (op.equals("<>")) return value1 != value2;
+        else if (op.equals(">" )) return value1 >  value2;
+        else if (op.equals(">=")) return value1 >= value2;
         
         return null;
     }
