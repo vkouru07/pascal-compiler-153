@@ -25,6 +25,7 @@ statement : compoundStatement
           | writeStatement
           | writelnStatement
           | emptyStatement
+          | whileStatement
           | forStatement
           ;
 
@@ -47,6 +48,7 @@ format           : width (':' precision)? ;
 width            : sign? integerConstant ;
 precision        : integerConstant ;
 
+whileStatement   : WHILE expression DO statement;
 forStatement     : FOR assignmentStatement (TO | DOWNTO) expression DO statement;
 
 sign : '-' | '+' ;
@@ -105,6 +107,7 @@ REPEAT    : R E P E A T ;
 UNTIL     : U N T I L ;
 WRITE     : W R I T E ;
 WRITELN   : W R I T E L N ;
+WHILE     : W H I L E ;
 FOR       : F O R ;
 TO        : T O ;
 DOWNTO    : D O W N T O ;
